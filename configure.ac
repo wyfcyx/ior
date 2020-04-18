@@ -186,6 +186,17 @@ AM_COND_IF([USE_POSIX_AIORI],[
         AC_DEFINE([USE_POSIX_AIORI], [], [Build POSIX backend AIORI])
 ])
 
+# MDMS IO support
+AC_ARG_WITH([mdms],
+        [AS_HELP_STRING([--with-mdms],
+           [support IO with MDMS backend @<:@default=yes@:>@])],
+        [],
+        [with_mdms=yes])
+AM_CONDITIONAL([USE_MDMS_AIORI], [test x$with_mdms = xyes])
+AM_COND_IF([USE_MDMS_AIORI],[
+        AC_DEFINE([USE_MDMS_AIORI], [], [Build MDMS backend AIORI])
+])
+
 # RADOS support
 AC_ARG_WITH([rados],
         [AS_HELP_STRING([--with-rados],

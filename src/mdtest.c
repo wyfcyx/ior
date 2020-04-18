@@ -80,6 +80,8 @@
 #include <lustre/lustreapi.h>
 #endif /* HAVE_LUSTRE_LUSTREAPI */
 
+extern int local_rank;
+
 #define FILEMODE S_IRUSR|S_IWUSR|S_IRGRP|S_IWGRP|S_IROTH
 #define DIRMODE S_IRUSR|S_IWUSR|S_IXUSR|S_IRGRP|S_IWGRP|S_IXGRP|S_IROTH|S_IXOTH
 #define RELEASE_VERS META_VERSION
@@ -122,6 +124,7 @@ static int leaf_only;
 static unsigned branch_factor;
 static int depth;
 
+const char *treepath = "mdt";
 /*
  * This is likely a small value, but it's sometimes computed by
  * branch_factor^(depth+1), so we'll make it a larger variable,
@@ -754,9 +757,9 @@ void collective_create_remove(const int create, const int dirs, const int ntasks
 
         /* set the base tree name appropriately */
         if (unique_dir_per_task) {
-            sprintf(base_tree_name, "mdtest_tree.%d", i);
+            sprintf(base_tree_name, "%s.%d", treepath, i);
         } else {
-            sprintf(base_tree_name, "mdtest_tree");
+            sprintf(base_tree_name, "%s", treepath);
         }
 
         /* Setup to do I/O to the appropriate test dir */
@@ -772,15 +775,15 @@ void collective_create_remove(const int create, const int dirs, const int ntasks
         }
         if (unique_dir_per_task) {
             VERBOSE(3,5,"i %d nstride %d ntasks %d", i, nstride, ntasks);
-            sprintf(unique_mk_dir, "%s/mdtest_tree.%d.0", testdir,
+            sprintf(unique_mk_dir, "%s/%s.%d.0", testdir, treepath,
                     (i+(0*nstride))%ntasks);
-            sprintf(unique_chdir_dir, "%s/mdtest_tree.%d.0", testdir,
+            sprintf(unique_chdir_dir, "%s/%s.%d.0", testdir, treepath,
                     (i+(1*nstride))%ntasks);
-            sprintf(unique_stat_dir, "%s/mdtest_tree.%d.0", testdir,
+            sprintf(unique_stat_dir, "%s/%s.%d.0", testdir, treepath,
                     (i+(2*nstride))%ntasks);
-            sprintf(unique_read_dir, "%s/mdtest_tree.%d.0", testdir,
+            sprintf(unique_read_dir, "%s/%s.%d.0", testdir, treepath,
                     (i+(3*nstride))%ntasks);
-            sprintf(unique_rm_dir, "%s/mdtest_tree.%d.0", testdir,
+            sprintf(unique_rm_dir, "%s/%s.%d.0", testdir, treepath,
                     (i+(4*nstride))%ntasks);
             sprintf(unique_rm_uni_dir, "%s", testdir);
         }
@@ -793,9 +796,9 @@ void collective_create_remove(const int create, const int dirs, const int ntasks
 
     /* reset all of the item names */
     if (unique_dir_per_task) {
-        sprintf(base_tree_name, "mdtest_tree.0");
+        sprintf(base_tree_name, "%s.0", treepath);
     } else {
-        sprintf(base_tree_name, "mdtest_tree");
+        sprintf(base_tree_name, "%s", treepath);
     }
     if (!shared_file) {
         sprintf(mk_name, "mdtest.%d.", (0+(0*nstride))%ntasks);
@@ -804,15 +807,15 @@ void collective_create_remove(const int create, const int dirs, const int ntasks
         sprintf(rm_name, "mdtest.%d.", (0+(3*nstride))%ntasks);
     }
     if (unique_dir_per_task) {
-        sprintf(unique_mk_dir, "%s/mdtest_tree.%d.0", testdir,
+        sprintf(unique_mk_dir, "%s/%s.%d.0", testdir, treepath,
                 (0+(0*nstride))%ntasks);
-        sprintf(unique_chdir_dir, "%s/mdtest_tree.%d.0", testdir,
+        sprintf(unique_chdir_dir, "%s/%s.%d.0", testdir, treepath,
                 (0+(1*nstride))%ntasks);
-        sprintf(unique_stat_dir, "%s/mdtest_tree.%d.0", testdir,
+        sprintf(unique_stat_dir, "%s/%s.%d.0", testdir, treepath,
                 (0+(2*nstride))%ntasks);
-        sprintf(unique_read_dir, "%s/mdtest_tree.%d.0", testdir,
+        sprintf(unique_read_dir, "%s/%s.%d.0", testdir, treepath,
                 (0+(3*nstride))%ntasks);
-        sprintf(unique_rm_dir, "%s/mdtest_tree.%d.0", testdir,
+        sprintf(unique_rm_dir, "%s/%s.%d.0", testdir, treepath,
                 (0+(4*nstride))%ntasks);
         sprintf(unique_rm_uni_dir, "%s", testdir);
     }
@@ -1679,7 +1682,7 @@ static void mdtest_iteration(int i, int j, MPI_Group testgroup, mdtest_results_t
                  * I don't know how this ever worked. I'm changing this loop to use "k".
                  */
                 for (k=0; k<size; k++) {
-                    sprintf(base_tree_name, "mdtest_tree.%d", k);
+                    sprintf(base_tree_name, "%s.%d", treepath, k);
 
                     VERBOSE(3,5,"main (create hierarchical directory loop-collective): Calling create_remove_directory_tree with '%s'", testdir );
                     /*
@@ -1741,11 +1744,11 @@ static void mdtest_iteration(int i, int j, MPI_Group testgroup, mdtest_results_t
       }
       if (unique_dir_per_task) {
           VERBOSE(3,5,"i %d nstride %d", i, nstride);
-          sprintf(unique_mk_dir, "mdtest_tree.%d.0",  (rank+(0*nstride))%i);
-          sprintf(unique_chdir_dir, "mdtest_tree.%d.0", (rank+(1*nstride))%i);
-          sprintf(unique_stat_dir, "mdtest_tree.%d.0", (rank+(2*nstride))%i);
-          sprintf(unique_read_dir, "mdtest_tree.%d.0", (rank+(3*nstride))%i);
-          sprintf(unique_rm_dir, "mdtest_tree.%d.0", (rank+(4*nstride))%i);
+          sprintf(unique_mk_dir, "%s.%d.0",  treepath, (rank+(0*nstride))%i);
+          sprintf(unique_chdir_dir, "%s.%d.0",treepath, (rank+(1*nstride))%i);
+          sprintf(unique_stat_dir, "%s.%d.0", treepath,(rank+(2*nstride))%i);
+          sprintf(unique_read_dir, "%s.%d.0", treepath,(rank+(3*nstride))%i);
+          sprintf(unique_rm_dir, "%s.%d.0", treepath,(rank+(4*nstride))%i);
           unique_rm_uni_dir[0] = 0;
           VERBOSE(5,5,"mk_dir %s chdir %s stat_dir %s read_dir %s rm_dir %s\n", unique_mk_dir,unique_chdir_dir,unique_stat_dir,unique_read_dir,unique_rm_dir);
       }
@@ -1785,7 +1788,7 @@ static void mdtest_iteration(int i, int j, MPI_Group testgroup, mdtest_results_t
                  * I don't know how this ever worked. I'm changing this loop to use "k".
                  */
                 for (k=0; k<size; k++) {
-                    sprintf(base_tree_name, "mdtest_tree.%d", k);
+                    sprintf(base_tree_name, "%s.%d", treepath, k);
 
                     VERBOSE(3,-1,"main (remove hierarchical directory loop-collective): Calling create_remove_directory_tree with '%s'", testdir );
 
@@ -1969,10 +1972,13 @@ mdtest_results_t * mdtest_run(int argc, char **argv, MPI_Comm world_com, FILE * 
     backend = param.backend;
 
     MPI_Comm_rank(testComm, &rank);
+    local_rank = rank;
     MPI_Comm_size(testComm, &size);
 
     if (backend->initialize)
 	    backend->initialize();
+
+    MPI_Barrier(testComm);
 
     pid = getpid();
     uid = getuid();
@@ -2199,9 +2205,9 @@ mdtest_results_t * mdtest_run(int argc, char **argv, MPI_Comm world_com, FILE * 
     }
 
     if (unique_dir_per_task) {
-        sprintf(base_tree_name, "mdtest_tree.%d", rank);
+        sprintf(base_tree_name, "%s.%d", treepath, rank);
     } else {
-        sprintf(base_tree_name, "mdtest_tree");
+        sprintf(base_tree_name, "%s", treepath);
     }
 
     /* default use shared directory */

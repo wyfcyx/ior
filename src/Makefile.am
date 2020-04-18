@@ -65,6 +65,10 @@ if USE_POSIX_AIORI
 extraSOURCES += aiori-POSIX.c
 endif
 
+if USE_MDMS_AIORI
+extraSOURCES += aiori-MDMS.c
+endif
+
 if USE_RADOS_AIORI
 extraSOURCES += aiori-RADOS.c
 extraLDADD += -lrados

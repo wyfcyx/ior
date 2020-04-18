@@ -111,6 +111,10 @@ extern ior_aiori_t s3_emc_aiori;
 extern ior_aiori_t rados_aiori;
 extern ior_aiori_t cephfs_aiori;
 extern ior_aiori_t gfarm_aiori;
+extern ior_aiori_t mdms_aiori;
+
+/* For MDMS */
+extern int sockfd, connfd;
 
 void aiori_initialize(IOR_test_t * tests);
 void aiori_finalize(IOR_test_t * tests);
