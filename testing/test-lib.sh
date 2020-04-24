@@ -9,8 +9,9 @@
 IOR_MPIRUN=${IOR_MPIRUN:-mpiexec -np}
 IOR_BIN_DIR=${IOR_BIN_DIR:-./src}
 IOR_OUT=${IOR_OUT:-./test_logs}
-#IOR_TMP=${IOR_TMP:-/dev/shm}
-IOR_TMP=${IOR_TMP:-/root/mnt/glusterfs}
+IOR_TMP=${IOR_TMP:-/dev/shm}
+#IOR_TMP=${IOR_TMP:-/root/mnt/glusterfs-vol01}
+#IOR_TMP=${IOR_TMP:-/root/mnt/glusterfs-vol02}
 IOR_EXTRA=${IOR_EXTRA:-} # Add global options like verbosity
 MDTEST_EXTRA=${MDTEST_EXTRA:-}
 MDTEST_TEST_PATTERNS=${MDTEST_TEST_PATTERNS:-../testing/mdtest-patterns/$TYPE}
@@ -57,7 +58,7 @@ function MDTEST(){
   RANKS=$1
   shift
   rm -rf ${IOR_TMP}/mdest
-  WHAT="${IOR_MPIRUN} $RANKS ${IOR_BIN_DIR}/mdtest ${@} ${MDTEST_EXTRA} -d ${IOR_TMP}/mdest -V=4"
+  WHAT="${IOR_MPIRUN} $RANKS ${IOR_BIN_DIR}/mdtest ${@} ${MDTEST_EXTRA} -d ${IOR_TMP}/mdest"
   $WHAT 1>"${IOR_OUT}/test_out.$I" 2>&1
   if [[ $? != 0 ]]; then
     echo -n "ERR"

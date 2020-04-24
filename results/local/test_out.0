@@ -1,0 +1,24 @@
+-- started at 04/24/2020 17:27:23 --
+
+mdtest-3.3.0+dev was launched with 1 total task(s) on 1 node(s)
+Command line used: ./src/mdtest '-n' '5000' '-i' '8' '-V' '0' '-d' '/dev/shm/mdest'
+Path: /dev/shm
+FS: 11.7 GiB   Used FS: 0.0%   Inodes: 2.9 Mi   Used Inodes: 0.0%
+
+Nodemap: 1
+1 tasks, 5000 files/directories
+
+SUMMARY rate: (of 8 iterations)
+   Operation                      Max            Min           Mean        Std Dev
+   ---------                      ---            ---           ----        -------
+   Directory creation        :     781440.548     748181.234     763045.648      11349.854
+   Directory stat            :     945088.779     835685.196     905542.755      29144.540
+   Directory removal         :     717318.375     620000.591     695391.915      29463.254
+   File creation             :     498230.543     460689.776     476293.575      11768.391
+   File stat                 :     931984.712     837052.766     894474.592      28875.279
+   File read                 :     585518.608     551969.258     574401.381      12304.616
+   File removal              :     715116.961     692998.480     701885.489       7662.788
+   Tree creation             :     524288.000     155344.593     423887.731     107755.952
+   Tree removal              :     279620.267     209715.200     248745.980      21814.384
+-- finished at 04/24/2020 17:27:24 --
+

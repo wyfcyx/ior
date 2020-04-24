@@ -1,0 +1,15 @@
+SUMMARY rate: (of 8 iterations)
+   Operation                      Max            Min           Mean        Std Dev
+   ---------                      ---            ---           ----        -------
+   Directory creation        :       1436.385       1110.957       1254.379        110.557
+   Directory stat            :       3605.167       3500.544       3560.733         37.672
+   Directory removal         :       1686.909       1580.112       1638.778         36.342
+   File creation             :       1147.020       1022.410       1116.398         37.934
+   File stat                 :       3621.191       3424.649       3523.563         77.449
+   File read                 :       2978.929       2845.129       2908.823         45.825
+   File removal              :       1740.634       1384.051       1656.202        108.098
+   Tree creation             :       1644.825        795.430       1403.006        242.749
+   Tree removal              :        220.695        190.650        201.868          8.158
+V-1: Entering PrintTimestamp...
+-- finished at 04/24/2020 16:06:53 --
+
