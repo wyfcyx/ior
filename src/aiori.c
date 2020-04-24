@@ -180,7 +180,7 @@ int aiori_posix_statfs (const char *path, ior_aiori_statfs_t *stat_buf, IOR_para
 
 int aiori_posix_mkdir (const char *path, mode_t mode, IOR_param_t * param)
 {
-        printf("mkdir %s\n", path);
+        //printf("mkdir %s\n", path);
         return mkdir (path, mode);
 }
 
