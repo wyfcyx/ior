@@ -1,4 +1,4 @@
--- started at 04/25/2020 20:05:15 --
+-- started at 04/26/2020 00:31:21 --
 
 mdtest-3.3.0+dev was launched with 1 total task(s) on 1 node(s)
 Command line used: ./src/mdtest '-n' '5000' '-i' '8' '-V' '0' '-d' '/root/mnt/lustrefs/mdest'
@@ -11,14 +11,14 @@ Nodemap: 1
 SUMMARY rate: (of 8 iterations)
    Operation                      Max            Min           Mean        Std Dev
    ---------                      ---            ---           ----        -------
-   Directory creation        :       3936.403       3611.524       3713.305        109.627
-   Directory stat            :       4429.109       4121.216       4304.332        100.567
-   Directory removal         :       3967.454       3541.053       3739.966        109.378
-   File creation             :       1989.371       1896.571       1943.619         29.696
-   File stat                 :       1779.541       1649.290       1728.299         37.978
-   File read                 :       2211.204       2153.535       2187.415         18.661
-   File removal              :       3722.407       3546.281       3616.829         57.774
-   Tree creation             :       2105.574       1631.390       1882.055        179.125
-   Tree removal              :       2134.506       1781.777       1964.024        106.729
--- finished at 04/25/2020 20:06:59 --
+   Directory creation        :       3820.502       3375.688       3622.832        139.273
+   Directory stat            :       4086.477       3519.668       3915.095        167.115
+   Directory removal         :       3686.000       3142.214       3493.111        174.383
+   File creation             :       1852.286       1763.494       1804.547         27.216
+   File stat                 :       1784.599       1732.695       1756.965         17.531
+   File read                 :       2115.009       1911.654       2055.474         57.670
+   File removal              :       3399.509       3196.690       3291.448         67.075
+   Tree creation             :       1963.625       1476.868       1698.194        187.371
+   Tree removal              :       2294.477       1455.345       1968.836        236.784
+-- finished at 04/26/2020 00:33:10 --
 

@@ -13,9 +13,9 @@ source $ROOT/test-lib.sh
 
 MDTEST 1 -n 5000 -i 8 -V 0
 MDTEST 2 -n 5000 -i 8 -V 0
-#MDTEST 4 -n 5000 -i 8 -V 0
-#MDTEST 8 -n 5000 -i 8 -V 0
-#MDTEST 12 -n 5000 -i 8 -V 0
+MDTEST 4 -n 5000 -i 8 -V 0
+MDTEST 8 -n 5000 -i 8 -V 0
+MDTEST 12 -n 5000 -i 8 -V 0
 #MDTEST 2 -a MDMS -n 5000 -i 3
 #MDTEST 4 -a MDMS -n 5000 -i 3
 
