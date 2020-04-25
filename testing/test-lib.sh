@@ -9,9 +9,10 @@
 IOR_MPIRUN=${IOR_MPIRUN:-mpiexec -np}
 IOR_BIN_DIR=${IOR_BIN_DIR:-./src}
 IOR_OUT=${IOR_OUT:-./test_logs}
-IOR_TMP=${IOR_TMP:-/dev/shm}
+#IOR_TMP=${IOR_TMP:-/dev/shm}
 #IOR_TMP=${IOR_TMP:-/root/mnt/glusterfs-vol01}
 #IOR_TMP=${IOR_TMP:-/root/mnt/glusterfs-vol02}
+IOR_TMP=${IOR_TMP:-/root/mnt/lustrefs}
 IOR_EXTRA=${IOR_EXTRA:-} # Add global options like verbosity
 MDTEST_EXTRA=${MDTEST_EXTRA:-}
 MDTEST_TEST_PATTERNS=${MDTEST_TEST_PATTERNS:-../testing/mdtest-patterns/$TYPE}
