@@ -1,0 +1,24 @@
+-- started at 04/26/2020 09:58:57 --
+
+mdtest-3.3.0+dev was launched with 8 total task(s) on 1 node(s)
+Command line used: ./src/mdtest '-n' '1000' '-i' '8' '-V' '0' '-d' '/root/mnt/lustrefs/mdest'
+Path: /root/mnt/lustrefs
+FS: 9.2 GiB   Used FS: 0.4%   Inodes: 0.6 Mi   Used Inodes: 0.2%
+
+Nodemap: 11111111
+8 tasks, 8000 files/directories
+
+SUMMARY rate: (of 8 iterations)
+   Operation                      Max            Min           Mean        Std Dev
+   ---------                      ---            ---           ----        -------
+   Directory creation        :       3262.738       3099.748       3195.513         43.710
+   Directory stat            :       3876.861       3404.385       3643.062        187.900
+   Directory removal         :       3454.775       3027.148       3236.221        108.069
+   File creation             :       3136.391       3006.710       3060.519         41.038
+   File stat                 :       3780.706       3458.548       3617.302        121.718
+   File read                 :      10400.982       9760.750       9997.706        212.626
+   File removal              :       3306.195       3217.410       3241.207         27.270
+   Tree creation             :       1955.386       1575.030       1725.044        135.344
+   Tree removal              :       1657.828       1453.832       1526.706         55.376
+-- finished at 04/26/2020 10:00:59 --
+
