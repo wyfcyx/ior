@@ -1,0 +1,9 @@
+整理一下我的 MDMS 的整体架构：
+目前的代码都放在本地的 vagrant 虚拟机上。
+首先是在 node 节点上的 dms<k> 文件夹中放着的，dms.go 以及用来启动它的 run.sh，客户端可以通过 golang 自带的 rpc 接口连接到它，里面的功能目前是调用 leveldb.go 中的函数。
+在客户端方面，主要是在 deploy 节点中的 tcp 文件夹中：daemon.go 的作用是接受 mdtest 传过来的请求，并使用 rpc 接口与服务器端的 dms.go 进行交互。从 ip 地址的设置来看： daemon.go 连接到 localhost:6789+<local_rank> 并接受传过来的请求。multiclient.sh 可以同时启动多个 daemon 进程来供 openmpi 使用。
+在 mdtest 方面，我们需要使用 -a MDMS 使用 MDMS 接口，在 aiori-MDMS.c 中的 MDMS_Initialize 函数中，进行了 tcp 连接初始化准备连接到本地的 daemon.go 中。
+因此启动顺序是：
+1. 服务器端启动 dms.go (run.sh)
+2. 客户端启动监控程序 daemon.go (multiclient.sh)
+3. 运行 mdtest，进程数量需要与 multiclient.sh 中传入的参数一致
