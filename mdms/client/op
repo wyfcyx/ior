@@ -1,0 +1,110 @@
+access ./out/test-dir.0-0
+mkdir ./out/test-dir.0-0/mdt.0/
+mkdir ./out/test-dir.0-0/mdt.0/dir.mdtest.0.0
+mkdir ./out/test-dir.0-0/mdt.0/dir.mdtest.0.1
+mkdir ./out/test-dir.0-0/mdt.0/dir.mdtest.0.2
+mkdir ./out/test-dir.0-0/mdt.0/dir.mdtest.0.3
+mkdir ./out/test-dir.0-0/mdt.0/dir.mdtest.0.4
+mkdir ./out/test-dir.0-0/mdt.0/dir.mdtest.0.5
+mkdir ./out/test-dir.0-0/mdt.0/dir.mdtest.0.6
+mkdir ./out/test-dir.0-0/mdt.0/dir.mdtest.0.7
+mkdir ./out/test-dir.0-0/mdt.0/dir.mdtest.0.8
+mkdir ./out/test-dir.0-0/mdt.0/dir.mdtest.0.9
+stat ./out/test-dir.0-0/mdt.0/dir.mdtest.0.0
+stat ./out/test-dir.0-0/mdt.0/dir.mdtest.0.1
+stat ./out/test-dir.0-0/mdt.0/dir.mdtest.0.2
+stat ./out/test-dir.0-0/mdt.0/dir.mdtest.0.3
+stat ./out/test-dir.0-0/mdt.0/dir.mdtest.0.4
+stat ./out/test-dir.0-0/mdt.0/dir.mdtest.0.5
+stat ./out/test-dir.0-0/mdt.0/dir.mdtest.0.6
+stat ./out/test-dir.0-0/mdt.0/dir.mdtest.0.7
+stat ./out/test-dir.0-0/mdt.0/dir.mdtest.0.8
+stat ./out/test-dir.0-0/mdt.0/dir.mdtest.0.9
+rmdir ./out/test-dir.0-0/mdt.0/dir.mdtest.0.0
+rmdir ./out/test-dir.0-0/mdt.0/dir.mdtest.0.1
+rmdir ./out/test-dir.0-0/mdt.0/dir.mdtest.0.2
+rmdir ./out/test-dir.0-0/mdt.0/dir.mdtest.0.3
+rmdir ./out/test-dir.0-0/mdt.0/dir.mdtest.0.4
+rmdir ./out/test-dir.0-0/mdt.0/dir.mdtest.0.5
+rmdir ./out/test-dir.0-0/mdt.0/dir.mdtest.0.6
+rmdir ./out/test-dir.0-0/mdt.0/dir.mdtest.0.7
+rmdir ./out/test-dir.0-0/mdt.0/dir.mdtest.0.8
+rmdir ./out/test-dir.0-0/mdt.0/dir.mdtest.0.9
+create ./out/test-dir.0-0/mdt.0/file.mdtest.0.0
+close
+create ./out/test-dir.0-0/mdt.0/file.mdtest.0.1
+close
+create ./out/test-dir.0-0/mdt.0/file.mdtest.0.2
+close
+create ./out/test-dir.0-0/mdt.0/file.mdtest.0.3
+close
+create ./out/test-dir.0-0/mdt.0/file.mdtest.0.4
+close
+create ./out/test-dir.0-0/mdt.0/file.mdtest.0.5
+close
+create ./out/test-dir.0-0/mdt.0/file.mdtest.0.6
+close
+create ./out/test-dir.0-0/mdt.0/file.mdtest.0.7
+close
+create ./out/test-dir.0-0/mdt.0/file.mdtest.0.8
+close
+create ./out/test-dir.0-0/mdt.0/file.mdtest.0.9
+close
+stat ./out/test-dir.0-0/mdt.0/file.mdtest.0.0
+stat ./out/test-dir.0-0/mdt.0/file.mdtest.0.1
+stat ./out/test-dir.0-0/mdt.0/file.mdtest.0.2
+stat ./out/test-dir.0-0/mdt.0/file.mdtest.0.3
+stat ./out/test-dir.0-0/mdt.0/file.mdtest.0.4
+stat ./out/test-dir.0-0/mdt.0/file.mdtest.0.5
+stat ./out/test-dir.0-0/mdt.0/file.mdtest.0.6
+stat ./out/test-dir.0-0/mdt.0/file.mdtest.0.7
+stat ./out/test-dir.0-0/mdt.0/file.mdtest.0.8
+stat ./out/test-dir.0-0/mdt.0/file.mdtest.0.9
+open ./out/test-dir.0-0/mdt.0/file.mdtest.0.0
+close
+open ./out/test-dir.0-0/mdt.0/file.mdtest.0.1
+close
+open ./out/test-dir.0-0/mdt.0/file.mdtest.0.2
+close
+open ./out/test-dir.0-0/mdt.0/file.mdtest.0.3
+close
+open ./out/test-dir.0-0/mdt.0/file.mdtest.0.4
+close
+open ./out/test-dir.0-0/mdt.0/file.mdtest.0.5
+close
+open ./out/test-dir.0-0/mdt.0/file.mdtest.0.6
+close
+open ./out/test-dir.0-0/mdt.0/file.mdtest.0.7
+close
+open ./out/test-dir.0-0/mdt.0/file.mdtest.0.8
+close
+open ./out/test-dir.0-0/mdt.0/file.mdtest.0.9
+close
+delete ./out/test-dir.0-0/mdt.0/file.mdtest.0.0
+delete ./out/test-dir.0-0/mdt.0/file.mdtest.0.1
+delete ./out/test-dir.0-0/mdt.0/file.mdtest.0.2
+delete ./out/test-dir.0-0/mdt.0/file.mdtest.0.3
+delete ./out/test-dir.0-0/mdt.0/file.mdtest.0.4
+delete ./out/test-dir.0-0/mdt.0/file.mdtest.0.5
+delete ./out/test-dir.0-0/mdt.0/file.mdtest.0.6
+delete ./out/test-dir.0-0/mdt.0/file.mdtest.0.7
+delete ./out/test-dir.0-0/mdt.0/file.mdtest.0.8
+delete ./out/test-dir.0-0/mdt.0/file.mdtest.0.9
+rmdir ./out/test-dir.0-0/mdt.0/
+access ./out/test-dir.0-0
+rmdir ./out/test-dir.0-0
+
+for directory:
+    mkdir
+    rmdir
+    access
+    stat
+for file:
+    create
+    open
+    close
+    delete
+    stat
+for tree:
+    create
+    remove

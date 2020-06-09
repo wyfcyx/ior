@@ -66,8 +66,16 @@ static void MDMS_Fsync(void *, IOR_param_t *);
 static void MDMS_Sync(IOR_param_t * );
 int sockfd, connfd;
 int local_rank;
-#define MAX 1000
+#define MAX 1024
 char buff[MAX];
+
+void login()
+{
+        bzero(buff, MAX);
+        buff[0] = '0';
+        buff[1] = '\0';
+        write(sockfd, buff, sizeof buff);
+}
 
 void callGoClient()
 {
@@ -76,13 +84,30 @@ void callGoClient()
         read(sockfd, buff, sizeof(buff));
 }
 
-void genCommand(char *type, char *path)
+void genCommand(char *type, char *_path, int arg)
 {
         bzero(buff, MAX);
         strcpy(buff, type);
+        char *path = _path;
+        if (strlen(_path) > 0) {
+                path = _path + 1;
+        }
         strcpy(buff + strlen(type), path);
-        buff[strlen(type) + strlen(path)] = '\0';
+        char *p = buff + strlen(type) + strlen(path);
+        if (arg >= 0) {
+                *p++ = ' ';
+                if (arg == 0) {
+                        *p++ = '0';
+                } else {
+                        int stack[10], top = 0;
+                        while (arg > 0) stack[top++] = arg % 10, arg /= 10;
+                        while (top > 0) *p++ = '0' + stack[top - 1], --top;
+                }
+        }
+        *p++ = '\0';
+        //printf("%s\n", buff);
 }
+
 /************************** O P T I O N S *****************************/
 typedef struct{
   /* in case of a change, please update depending MMAP module too */
@@ -118,8 +143,9 @@ option_help * MDMS_options(void ** init_backend_options, void * init_values){
  */
 void *MDMS_Create(char *testFileName, IOR_param_t * param)
 {
-        genCommand("create ", testFileName);
+        genCommand("create ", testFileName, -1);
         callGoClient();
+        //printf("MDMS_Create %s\n", testFileName);
 }
 
 /*
@@ -127,7 +153,7 @@ void *MDMS_Create(char *testFileName, IOR_param_t * param)
  */
 int MDMS_Mknod(char *testFileName)
 {
-        genCommand("mknod ", testFileName);
+        genCommand("mknod ", testFileName, -1);
         callGoClient();
 }
 
@@ -136,9 +162,8 @@ int MDMS_Mknod(char *testFileName)
  */
 void *MDMS_Open(char *testFileName, IOR_param_t * param)
 {
-        genCommand("open ", testFileName);
-        callGoClient();
-        
+        genCommand("open ", testFileName, -1);
+        //callGoClient();
         int *fd;
         fd = (int *)malloc(sizeof(int));
         *fd = 16;
@@ -151,7 +176,7 @@ void *MDMS_Open(char *testFileName, IOR_param_t * param)
 static IOR_offset_t MDMS_Xfer(int access, void *file, IOR_size_t * buffer,
                                IOR_offset_t length, IOR_param_t * param)
 {
-        genCommand("xfer ", "");
+        genCommand("xfer ", "", -1);
         callGoClient();
         //printf("MDMS_Xfer\n");
 
@@ -252,8 +277,8 @@ void MDMS_Close(void *fd, IOR_param_t * param)
         //char fdn[10];
         //itoa(*(int*)fd, fdn, 10);
         //sprintf(fdn, "%d", *(int*)fd);
-        genCommand("close", "");
-        callGoClient();
+        genCommand("close", "", -1);
+        //callGoClient();
         //printf("MDMS_Close, fd = %d\n", *(int*)fd);
         //printf("MDMS_Close\n");
 
@@ -264,7 +289,7 @@ void MDMS_Close(void *fd, IOR_param_t * param)
  */
 void MDMS_Delete(char *testFileName, IOR_param_t * param)
 {
-        genCommand("delete ", testFileName);
+        genCommand("delete ", testFileName, -1);
         callGoClient();
         //printf("MDMS_Delete %s\n", testFileName);
 
@@ -347,9 +372,9 @@ int MDMS_Mkdir (const char *path, mode_t mode, IOR_param_t * param)
         //bzero(buff, MAX);
         //strcpy(buff, "mkdir ");
         //strcpy(buff + 6, path);
-        genCommand("mkdir ", path);
+        genCommand("mkdir ", path, (int)mode);
         callGoClient();
-        //printf("MDMS_Mkdir %s receive from server = %s\n", path, buff);
+        //printf("MDMS_Mkdir %s, mode = %d\n", path, mode);
         
         return 0;
         
@@ -357,7 +382,7 @@ int MDMS_Mkdir (const char *path, mode_t mode, IOR_param_t * param)
 
 int MDMS_Rmdir (const char *path, IOR_param_t * param)
 {
-        genCommand("rmdir ", path);
+        genCommand("rmdir ", path, -1);
         callGoClient();
         //printf("MDMS_Rmdir %s\n", path);
 
@@ -366,16 +391,17 @@ int MDMS_Rmdir (const char *path, IOR_param_t * param)
 
 int MDMS_Access (const char *path, int mode, IOR_param_t * param)
 {
-        genCommand("access ", path);
+        genCommand("access ", path, mode);
         callGoClient();
-        //printf("MDMS_Access %s\n", path);
-
-        return 0;
+        //printf("MDMS_Access %s, mode = %d\n", path, mode);
+        if (buff[0] == 'O' && buff[1] == 'K') 
+                return 0;
+        return -1;
 }
 
 int MDMS_Stat (const char *path, struct stat *buf, IOR_param_t * param)
 {
-        genCommand("stat ", path);
+        genCommand("stat ", path, -1);
         callGoClient();
         //printf("MDMS_Stat %s\n", path);
         
@@ -409,6 +435,8 @@ void MDMS_Initialize ()
         }
         else
                 printf("connected to the server..\n");
+
+        login();
 }
 
 void MDMS_Finalize ()

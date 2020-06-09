@@ -1,0 +1,120 @@
+-- started at 06/09/2020 13:28:27 --
+
+mdtest-3.3.0+dev was launched with 1 total task(s) on 1 node(s)
+Command line used: ./src/mdtest '-a' 'MDMS' '-n' '10'
+access /out 0
+Path: /home/vagrant/myior/ior
+FS: 40.0 GiB   Used FS: 16.5%   Inodes: 20.0 Mi   Used Inodes: 0.6%
+
+Nodemap: 1
+1 tasks, 10 files/directories
+access /out/test-dir.0-0 0
+mkdir /out/test-dir.0-0/mdt.0/ 509
+mkdir /out/test-dir.0-0/mdt.0/dir.mdtest.0.0 509
+mkdir /out/test-dir.0-0/mdt.0/dir.mdtest.0.1 509
+mkdir /out/test-dir.0-0/mdt.0/dir.mdtest.0.2 509
+mkdir /out/test-dir.0-0/mdt.0/dir.mdtest.0.3 509
+mkdir /out/test-dir.0-0/mdt.0/dir.mdtest.0.4 509
+mkdir /out/test-dir.0-0/mdt.0/dir.mdtest.0.5 509
+mkdir /out/test-dir.0-0/mdt.0/dir.mdtest.0.6 509
+mkdir /out/test-dir.0-0/mdt.0/dir.mdtest.0.7 509
+mkdir /out/test-dir.0-0/mdt.0/dir.mdtest.0.8 509
+mkdir /out/test-dir.0-0/mdt.0/dir.mdtest.0.9 509
+stat /out/test-dir.0-0/mdt.0/dir.mdtest.0.0
+stat /out/test-dir.0-0/mdt.0/dir.mdtest.0.1
+stat /out/test-dir.0-0/mdt.0/dir.mdtest.0.2
+stat /out/test-dir.0-0/mdt.0/dir.mdtest.0.3
+stat /out/test-dir.0-0/mdt.0/dir.mdtest.0.4
+stat /out/test-dir.0-0/mdt.0/dir.mdtest.0.5
+stat /out/test-dir.0-0/mdt.0/dir.mdtest.0.6
+stat /out/test-dir.0-0/mdt.0/dir.mdtest.0.7
+stat /out/test-dir.0-0/mdt.0/dir.mdtest.0.8
+stat /out/test-dir.0-0/mdt.0/dir.mdtest.0.9
+rmdir /out/test-dir.0-0/mdt.0/dir.mdtest.0.0
+rmdir /out/test-dir.0-0/mdt.0/dir.mdtest.0.1
+rmdir /out/test-dir.0-0/mdt.0/dir.mdtest.0.2
+rmdir /out/test-dir.0-0/mdt.0/dir.mdtest.0.3
+rmdir /out/test-dir.0-0/mdt.0/dir.mdtest.0.4
+rmdir /out/test-dir.0-0/mdt.0/dir.mdtest.0.5
+rmdir /out/test-dir.0-0/mdt.0/dir.mdtest.0.6
+rmdir /out/test-dir.0-0/mdt.0/dir.mdtest.0.7
+rmdir /out/test-dir.0-0/mdt.0/dir.mdtest.0.8
+rmdir /out/test-dir.0-0/mdt.0/dir.mdtest.0.9
+create /out/test-dir.0-0/mdt.0/file.mdtest.0.0
+close
+create /out/test-dir.0-0/mdt.0/file.mdtest.0.1
+close
+create /out/test-dir.0-0/mdt.0/file.mdtest.0.2
+close
+create /out/test-dir.0-0/mdt.0/file.mdtest.0.3
+close
+create /out/test-dir.0-0/mdt.0/file.mdtest.0.4
+close
+create /out/test-dir.0-0/mdt.0/file.mdtest.0.5
+close
+create /out/test-dir.0-0/mdt.0/file.mdtest.0.6
+close
+create /out/test-dir.0-0/mdt.0/file.mdtest.0.7
+close
+create /out/test-dir.0-0/mdt.0/file.mdtest.0.8
+close
+create /out/test-dir.0-0/mdt.0/file.mdtest.0.9
+close
+stat /out/test-dir.0-0/mdt.0/file.mdtest.0.0
+stat /out/test-dir.0-0/mdt.0/file.mdtest.0.1
+stat /out/test-dir.0-0/mdt.0/file.mdtest.0.2
+stat /out/test-dir.0-0/mdt.0/file.mdtest.0.3
+stat /out/test-dir.0-0/mdt.0/file.mdtest.0.4
+stat /out/test-dir.0-0/mdt.0/file.mdtest.0.5
+stat /out/test-dir.0-0/mdt.0/file.mdtest.0.6
+stat /out/test-dir.0-0/mdt.0/file.mdtest.0.7
+stat /out/test-dir.0-0/mdt.0/file.mdtest.0.8
+stat /out/test-dir.0-0/mdt.0/file.mdtest.0.9
+open /out/test-dir.0-0/mdt.0/file.mdtest.0.0
+close
+open /out/test-dir.0-0/mdt.0/file.mdtest.0.1
+close
+open /out/test-dir.0-0/mdt.0/file.mdtest.0.2
+close
+open /out/test-dir.0-0/mdt.0/file.mdtest.0.3
+close
+open /out/test-dir.0-0/mdt.0/file.mdtest.0.4
+close
+open /out/test-dir.0-0/mdt.0/file.mdtest.0.5
+close
+open /out/test-dir.0-0/mdt.0/file.mdtest.0.6
+close
+open /out/test-dir.0-0/mdt.0/file.mdtest.0.7
+close
+open /out/test-dir.0-0/mdt.0/file.mdtest.0.8
+close
+open /out/test-dir.0-0/mdt.0/file.mdtest.0.9
+close
+delete /out/test-dir.0-0/mdt.0/file.mdtest.0.0
+delete /out/test-dir.0-0/mdt.0/file.mdtest.0.1
+delete /out/test-dir.0-0/mdt.0/file.mdtest.0.2
+delete /out/test-dir.0-0/mdt.0/file.mdtest.0.3
+delete /out/test-dir.0-0/mdt.0/file.mdtest.0.4
+delete /out/test-dir.0-0/mdt.0/file.mdtest.0.5
+delete /out/test-dir.0-0/mdt.0/file.mdtest.0.6
+delete /out/test-dir.0-0/mdt.0/file.mdtest.0.7
+delete /out/test-dir.0-0/mdt.0/file.mdtest.0.8
+delete /out/test-dir.0-0/mdt.0/file.mdtest.0.9
+rmdir /out/test-dir.0-0/mdt.0/
+access /out/test-dir.0-0 0
+rmdir /out/test-dir.0-0
+
+SUMMARY rate: (of 1 iterations)
+   Operation                      Max            Min           Mean        Std Dev
+   ---------                      ---            ---           ----        -------
+   Directory creation        :     140277.726     140277.726     140277.726          0.000
+   Directory stat            :     136178.701     136178.701     136178.701          0.000
+   Directory removal         :     155922.082     155922.082     155922.082          0.000
+   File creation             :      57852.469      57852.469      57852.469          0.000
+   File stat                 :     137068.758     137068.758     137068.758          0.000
+   File read                 :      80197.017      80197.017      80197.017          0.000
+   File removal              :     116832.981     116832.981     116832.981          0.000
+   Tree creation             :     110376.421     110376.421     110376.421          0.000
+   Tree removal              :     116508.444     116508.444     116508.444          0.000
+-- finished at 06/09/2020 13:28:27 --
+
